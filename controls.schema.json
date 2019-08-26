@@ -7,11 +7,6 @@
     "controlType": {
       "type": "string",
       "enum": ["button", "dropdown"]
-    },
-
-    "options": {
-      "type": "array",
-      "items": {"type": "string"}
     }
     
   },
@@ -24,7 +19,12 @@
     }
   },
   "then": {
-    "required": ["options"]
+    "properties": {
+      "options": {
+        "type": "array",
+        "items": {"type": "string"}
+      }
+    }
   }
 
 }
