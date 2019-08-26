@@ -88,3 +88,25 @@ Test cases for [vscode-yaml](https://github.com/redhat-developer/vscode-yaml) an
   }
 }
 ```
+
+### Conditionally Add Property ... with `anyOf` or `oneOf`
+
+```json
+"oneOf": [
+   {
+     "properties": {
+       "controlType": {"const": "dropdown"},
+       "options": {
+         "type": "array",
+         "items": {"type": "string"}
+       }
+     },
+     "required": ["options"]
+   },
+   {
+     "properties": {
+       "controlType": {"const": "button"}
+     }
+   }
+ ]
+```
