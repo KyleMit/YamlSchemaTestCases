@@ -1,0 +1,11 @@
+{
+    "yaml.schemas": {
+      "controls.schema.json": "controls.yml"
+    },
+    "json.schemas": [
+        {
+            "fileMatch": ["controls.json"],
+            "url": "./controls.schema.json"
+        }
+    ]
+  }
