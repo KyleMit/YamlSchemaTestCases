@@ -18,7 +18,60 @@ Test cases for [vscode-yaml](https://github.com/redhat-developer/vscode-yaml) an
 
 ## Tests
 
-### Conditionally Add Property with  `if...then`
+### Conditionally Require Field
+
+### Conditionally Require Field ... Results
+
+| Lang | Expected               | Passed |
+| ---- | ---------------------- | ------ |
+| Yaml | Require prop "options" | ✅     |
+| Json | Require prop "options" | ✅     |
+
+![screenshot](https://i.imgur.com/p8sNT7n.png)
+
+### Conditionally Require Field .... with  `if...then`
+
+```json
+"if": {
+  "properties": {
+    "controlType": {"const": "dropdown"}
+  }
+},
+"then": {
+  "required": ["options"]
+}
+```
+
+### Conditionally Require Field .... with `anyOf` or `oneOf`
+
+```json
+"oneOf": [
+  {
+    "properties": {
+      "controlType": {"const": "dropdown"}
+    },
+    "required": ["options"]
+  },
+  {
+    "properties": {
+      "controlType": {"const": "button"}
+    }
+  }
+]
+```
+
+## Conditionally Add Property
+
+### Conditionally Add Property ... Results
+
+![screenshot](https://i.imgur.com/HmWFCjY.png)
+
+| Lang | Expected                   | Passed |
+| ---- | -------------------------- | ------ |
+| Yaml | Autocomplete for "options" | ❌     |
+| Json | Autocomplete for "options" | ✅     |
+
+### Conditionally Add Property ... with  `if...then`
 
 ```json
 "if": {
@@ -35,30 +88,3 @@ Test cases for [vscode-yaml](https://github.com/redhat-developer/vscode-yaml) an
   }
 }
 ```
-
-| Lang | Expected                   | Passed |
-| ---- | -------------------------- | ------ |
-| Yaml | Autocomplete for "options" | ❌     |
-| Json | Autocomplete for "options" | ✅     |
-
-![screenshot](https://i.imgur.com/HmWFCjY.png)
-
-### Conditionally Required with  `if...then`
-
-```json
-"if": {
-  "properties": {
-    "controlType": {"const": "dropdown"}
-  }
-},
-"then": {
-  "required": ["options"]
-}
-```
-
-| Lang | Expected               | Passed |
-| ---- | ---------------------- | ------ |
-| Yaml | Require prop "options" | ✅     |
-| Json | Require prop "options" | ✅     |
-
-![screenshot](https://i.imgur.com/p8sNT7n.png)

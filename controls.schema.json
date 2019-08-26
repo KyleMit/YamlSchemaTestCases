@@ -7,24 +7,29 @@
     "controlType": {
       "type": "string",
       "enum": ["button", "dropdown"]
+    },
+    "options": {
+      "type": "array",
+      "items": {"type": "string"}
     }
     
   },
     
   "required": ["controlType"],
 
-  "if": {
-    "properties": {
-      "controlType": {"const": "dropdown"}
-    }
-  },
-  "then": {
-    "properties": {
-      "options": {
-        "type": "array",
-        "items": {"type": "string"}
+  "oneOf": [
+    {
+      "properties": {
+        "controlType": {"const": "dropdown"}
+      },
+      "required": ["options"]
+    },
+    {
+      "properties": {
+        "controlType": {"const": "button"}
       }
     }
-  }
+
+  ]
 
 }
